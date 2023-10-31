@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace ="layout/plantilla :: head">
+        <title>Vacunacion</title>
+
+    </head>
+    <body>
+
+        <section th:fragment="vacunacion">
+
+            <div class="text-center">
+                <h1 style="color: #4B9F38; margin-top: 40px;">Vacunación</h1>
+            </div>
+
+
+            <div class="container mt-3">
+                <div class="row">
+                    <div class="col-md-7" style="margin-top: 30px;">
+                        <div class="rounded-left p-3 border rounded-4 m-7" style="background-color: white; height: 600px; position: relative;">
+                            <div style="position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background-color: lightgray;"></div>
+                            <div style="position: absolute; top: 20px; left: 20px;">
+                                <p style="font-size: 24px; color: #4B9F38; font-weight: bold;">Agendar cita para vacunación</p>
+                            </div>
+
+                            <div style="position: absolute; top: 20px; left: 427px;">
+                                <p style="font-size: 24px; color: #4B9F38; font-weight: bold;">Vacunación disponible</p>
+                            </div>
+
+                            <div style="position: absolute; bottom: 80px; right: 435px;">
+                                <button class="btn btn-primary rounded-4" style="background-color: #4B9F38; padding: 10px 20px; font-size: 19px; font-weight: bold; color: white;">Consultar disponibilidad</button>
+                            </div>
+                            <div style="position: absolute; top: 80px; left: 20px; width: 334px;"> 
+                                <form>
+                                    <div class="form-group">
+                                        <label for="fecha">Fecha:</label>
+                                        <input type="date" class="form-control" id="fecha">
+                                    </div>
+                                </form>
+                            </div>
+                            <div style="position: absolute; top: 170px; left: 20px; width: 334px;">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="hora">Hora:</label>
+                                        <input type="time" class="form-control" id="hora">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5" style="margin-top: -17px;">
+                        <div class="rounded-right p-3 border rounded-4 m-5" style="background-color: white; height: 700px;">
+                            <div style="position: absolute; top: 300px; left: 1200px;">
+                                <p style="font-size: 24px; color: #4B9F38; font-weight: bold;">Buscar vacunación previa</p>
+                            </div>
+                            <div style="position: absolute; top: 360px; left: 1162px; width: 350px; height: 45px; border: 2px solid lightgray; border-radius: 10px;"></div>
+                            <button class="btn" style="position: absolute; top: 360px; left: 1468px; width: 45px; height: 45px; border: 2px solid #000; border-radius: 10px; background-color: #4B9F38;">
+                                <i class="fa fa-search" style="font-size: 24px; color: white;"></i>
+                            </button>
+
+                            <div style="position: absolute; top: 420px; left: 1162px; width: 350px; height: 120px; border: 2px solid lightgray; border-radius: 10px;">
+                                <p style="position: absolute; top: -3px; left: 60px; font-size: 22px; font-weight: bold; color: #D19131;">Nombre de la vacuna</p>
+                                <hr style="border: 2px solid gray; position: absolute; top: 15px; width: 100%; left: 0;">
+
+                                    <a th:href="@{/vacunacion/modificar/}" class="btn btn-primary" style="position: absolute; top: 100px; left: -1px; width: 177px; height: 40px;">Modificar</a>
+
+                                    <button class="btn btn-danger" style="position: absolute; top: 100px; left: 168px; width: 180px; height: 40px;">Eliminar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section th:fragment="modificarVacunacion">
+
+            <div class="container mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Actualizar Vacuna</h5>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="nombreVacuna">Nombre de la Vacuna</label>
+                                        <input type="text" class="form-control" id="nombreVacuna">
+                                    </div>
+                                    <br>
+                                        <div class="form-group">
+                                            <label for="fechaVacuna">Fecha de la Vacuna</label>
+                                            <input type="date" class="form-control" id="fechaVacuna">
+                                        </div>
+                                        <br>
+                                            <div class="form-group">
+                                                <label for="horaVacuna">Hora de la Vacuna</label>
+                                                <input type="time" class="form-control" id="horaVacuna">
+                                            </div>
+                                            <br>
+                                                </form>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <a href="/index" class="btn btn-secondary">Volver</a>
+                                                    <button type="submit" class="btn btn-primary"  style="background-color: #4B9F38;"> Guardar Cambios</button>
+                                                </div>
+                                                </div>
+
+                                                </section>
+
+
+
+
+</body>
+</html>
+                                                
