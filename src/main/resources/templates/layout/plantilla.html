@@ -35,8 +35,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 </div>
 
                                 <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link custom-nav-link" href="#" style="width: 50px; color: white; margin-right: 60px"><i class="fa fa-user custom-icon" style="font-size: 30px;"></i></a>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link custom-nav-link" href="#" id="userDropdown" style="width: 50px; color: white; margin-right: 60px" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-placement="end">
+                                            <i class="fa fa-user custom-icon" style="font-size: 30px;"></i>
+                                        </a>
+                                        <div class="dropdown-menu user-dropdown dropdown-menu-end" aria-labelledby="userDropdown" style="background: transparent linear-gradient(196deg, #2B73C5 0%, #183A60 100%) 0% 0% no-repeat padding-box; width: 200px; right: 0;">
+                                            <div class="arrow-up" style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #ffffff; margin: 0 auto;"></div>
+                                            <div class="user-circle" style="width: 60px; height: 60px; border-radius: 50%; text-align: center; margin: 10px auto;">
+                                                <i class="fa fa-user-circle" style="font-size: 50px; color: white;"></i>
+                                            </div>
+                                            <a class="dropdown-item" href="#" style="background-color: transparent !important; color: #000 !important;">
+                                                <button class="btn btn-primary btn-block" style="background-color: white; margin-left: 40px; margin-top: 5px; color: black;">Ver Perfil</button>
+                                            </a>
+                                            <a class="dropdown-item" href="#" style="background-color: transparent !important; color: #000 !important;">
+                                                <button class="btn btn-danger btn-block" style="background-color: white; margin-top: 10px; color: black;">
+                                                    <i class="fa fa-sign-out" style="margin-right: 10px;"></i> Cerrar Sesión
+                                                </button>
+                                            </a>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
