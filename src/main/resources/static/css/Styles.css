@@ -1,0 +1,20 @@
+/* Reducir el tamaño y ajustar la posición del logotipo */
+.logo img {
+  width: 204px; /* Ajusta el ancho según tus necesidades */
+  height: 197px; /* Ajusta el alto según tus necesidades */
+  position: relative;
+  top: -27px; /* Ajusta la posición superior (top) según tus necesidades */
+  left: 31px; /* Ajusta la posición izquierda (left) según tus necesidades */
+}
+
+/* Cambiar el tamaño y el color del texto de navegación */
+.custom-nav-link {
+  font-size: 18px; /* Ajusta el tamaño según tus necesidades */
+  color: white; /* Cambiar el color del texto */
+}
+
+/* Cambiar el tamaño y el color del icono de usuario */
+.custom-icon {
+  font-size: 24px; /* Ajusta el tamaño según tus necesidades */
+  color: white; /* Cambiar el color del icono */
+}
