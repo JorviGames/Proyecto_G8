@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Historial Medico</title>
+
+    </head>
+    <body>
+
+        <section th:fragment="perfil">
+
+
+
+            <a th:href="@{/}">
+                <div style="text-align: center; margin-top: 20px;">
+
+                    <img src="" alt="Foto de perfil" style="width: 100px; height: 100px; border-radius: 50%;">
+
+                </div>
+            </a>
+            <div style="text-align: center;">
+                <p>Nombre de usuario: <strong>{}</strong></p>
+                <p>Cédula: <strong>{}</strong></p>
+            </div>
+            <br/>
+        </section>
+
+        <section th:fragment="buscar">
+            <div style="text-align:left; margin-top: 20px; margin-left: 18%;">
+                <input type="text" placeholder="Buscar citas" style="border-radius: 25px; padding: 10px; font-size: 16px; width: 340px; height: 56px;">
+                    <button style="position: absolute; top: 27.3%; left: 33%; border-radius: 49%; background-color: #4B9F38; color: white; width: 56px; height: 56px;">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    <h2 style="margin-left: 8%; color: #4B9F38; display: inline; font-size: 50px; font-weight: bold;">Citas previas</h2>
+            </div>
+
+        </section>
+
+        <section th:fragment="citas">
+
+            <div style="display: flex; justify-content: center; gap: 140px; padding: 20px; margin-top: 24px;">
+
+
+                <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px;">
+                    <h2 style="color: #000;">Motivo</h2>
+                    <br>
+                        <p style="font-size: 25px;">Hora de la cita</p>
+                        <p style="font-size: 25px;">Lugar de la cita</p>
+                        <br>
+                            <p style="font-size: 32px; font-weight: bold;">Fecha</p>
+
+                            <a href="/historial/modificar/" class="btn btn-primary" style="position: absolute; top: 69%; left: 20.7%; width: 142px; height: 40px;">Modificar</a>
+
+                            <button class="btn btn-danger" style="position: absolute; top: 69%; left: 28%; width: 142px; height: 40px;">Eliminar</button>
+
+                            </div>
+
+
+                            <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px;">
+                                <h2 style="color: #000;">Motivo</h2>
+                                <br>
+                                    <p style="font-size: 25px;">Hora de la cita</p>
+                                    <p style="font-size: 25px;">Lugar de la cita</p>
+                                    <br>
+                                        <p style="font-size: 32px; font-weight: bold;">Fecha</p>
+
+                                        <a href="/historial/modificar/" class="btn btn-primary" style="position: absolute; top: 69%; left: 42.7%; width: 142px; height: 40px;">Modificar</a>
+
+                                        <button class="btn btn-danger" style="position: absolute; top: 69%; left: 49.9%; width: 142px; height: 40px;">Eliminar</button>
+
+                                        </div>
+
+
+
+                                        <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px;">
+                                            <h2 style="color: #000;">Motivo</h2>
+                                            <br>
+                                                <p style="font-size: 25px;">Hora de la cita</p>
+                                                <p style="font-size: 25px;">Lugar de la cita</p>
+                                                <br>
+                                                    <p style="font-size: 32px; font-weight: bold;">Fecha</p>
+
+                                                    <a href="/historial/modificar/" class="btn btn-primary" style="position: absolute; top: 69%; left: 64.6%; width: 142px; height: 40px;">Modificar</a>
+
+                                                    <button class="btn btn-danger" style="position: absolute; top: 69%; left: 71.9%; width: 142px; height: 40px;">Eliminar</button>
+
+                                                    </div>
+
+                                                    </div>
+
+                                                    </section>
+
+
+
+                                                    </body>
+                                                    </html>
