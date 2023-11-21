@@ -6,6 +6,59 @@
         <title>Citas</title>
 
     </head>
-        <div>TODO write content</div>
+    <body>
+
+        <section th:fragment="cita">
+
+            <div class="text-center">
+                <h1 style="color: #4B9F38; margin-top: 55px; font-weight: bold;">Agende su cita</h1>
+            </div>
+
+            <div style="margin-top: 25px;  margin-left: 22%; width: 450px;"> 
+                <form>
+                    <div class="form-group" >
+                        <label for="fecha" style="color: #4B9F38; font-weight: bold;">Fecha:</label>
+                        <input type="date" class="form-control" id="fecha" style="border-radius: 25px; height: 55px; border-width: 2px;">
+                    </div>
+                </form>
+            </div>
+
+
+            <div style="margin-top: -4%; margin-left: 55%; width: 450px;"> 
+                <form>
+                    <div class="form-group" >
+                        <label for="hora" style="color: #4B9F38; font-weight: bold;">Hora:</label>
+                        <input type="time" class="form-control" id="hora" style="border-radius: 25px; height: 55px; border-width: 2px;">
+                    </div>
+                </form>
+            </div>
+
+            <div style="margin-top: 2%; margin-left: 22%; width: 1085px;">
+                <form>
+                    <div style="border-radius: 25px;">
+                        <label for="nombre" style="color: #4B9F38; font-weight: bold;">Nombre del Centro Médico:</label>
+                        <input type="text" class="form-control" id="nombre" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese el nombre del centro médico"/>
+                    </div>
+                </form>
+            </div>
+
+            <div style="margin-top: 40px; margin-left: 22%; width: 1085px;">
+                <form>
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="motivo" style="color: #4B9F38; font-weight: bold;">Motivo:</label>
+                        <input type="text" class="form-control" id="motivo" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Consulta, seguimiento, emergencia">
+                    </div>
+                </form>
+            </div>
+
+        </section>
+
+        <section th:fragment="buscar">
+            <button type="button" style="margin-top: 80px; margin-bottom: 7.5%; margin-left: 39%; background-color: #4B9F38; color: #FFFFFF; border: none; border-radius: 25px; height: 55px; width: 450px; font-size: 26px; font-weight: bold; cursor: pointer;">Consultar disponibilidad</button>
+        </section>
+
+
+
+
     </body>
 </html>
