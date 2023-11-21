@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/citas")
+@RequestMapping("/cita")
 public class CitaController {
     
     @GetMapping("/inicio")
     public String agendarCita(Model model) {
        
-        return "/citas/inicio";
+        return "/cita/inicio";
     }
     
 }
