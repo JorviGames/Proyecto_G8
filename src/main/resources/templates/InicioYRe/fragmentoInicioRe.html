@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head th:fragment="head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+                  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+                <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet" />
+                <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+                <script th:src="@{/webjars/popper.js/umd/popper.js}"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script>
+
+                <link href="/css/Styles.css" rel="stylesheet" type="text/css"/>
+
+                </head>
+
+                <body th:fragment="body" class="bg-gradient"
+                      style= "background: linear-gradient(180deg, #183A60 0%, #183A60 31%, #076640E6 100%) 0% 0% no-repeat padding-box;">
+                    <header th:fragment="headerIn">
+                        <nav class="navbar navbar-expand-lg"
+                             style="background: transparent linear-gradient(181deg, #2963A5 0%, #153253 100%) 0% 0% no-repeat padding-box;">
+                            <div class="container-fluid">
+                                <a class="navbar-brand logo" href="#">
+                                    <img src="Imagenes/Rectangle 2.png" alt=""
+                                         style="width: 120px; height: auto; position: relative; top: 5px; left: 31px;" />
+                                </a>
+                                <li class="nav-item dropdown">
+                                    <span class="nav-link custom-nav-link"
+                                          style="width: 150px; color: white; display: flex; align-items: center; margin-bottom: 5px; margin-right: 20rem;">
+                                        <i class="fa fa-user custom-icon" style="font-size: 30px; margin-right: 5px;"></i>
+                                        Inicio de sesión
+                                    </span>
+                                </li>
+                            </div>
+                        </nav>
+                    </header>
+
+                    <header th:fragmento="header">
+                        <nav class="navbar navbar-expand-lg"
+                             style="background: transparent linear-gradient(181deg, #2963A5 0%, #153253 100%) 0% 0% no-repeat padding-box;">
+                            <div class="container-fluid">
+                                <a class="navbar-brand logo" href="#">
+                                    <img src="Imagenes/Rectangle 2.png" alt=""
+                                         style="width: 120px; height: auto; position: relative; top: 5px; left: 31px;" />
+                                </a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                    <div class="navbar-nav">
+                                        <a class="nav-link active custom-nav-link" aria-current="page" href="#"
+                                           style="font-size: 24px; margin-left: 60px; color: white;">Historial Medico</a>
+                                        <a class="nav-link custom-nav-link" href="#"
+                                           style="font-size: 24px; margin-left: 30px; color: white;">Citas</a>
+                                        <a class="nav-link custom-nav-link" href="#"
+                                           style="font-size: 24px; margin-left: 30px; color: white;">Vacunación</a>
+                                        <a class="nav-link custom-nav-link" href="#"
+                                           style="font-size: 24px; margin-left: 30px; color: white;">Examenes</a>
+                                    </div>
+                                </div>
+
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link custom-nav-link" href="#" id="userDropdown"
+                                           style="width: 50px; color: white; margin-right: 60px" role="button"
+                                           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                           data-bs-placement="end">
+                                            <i class="fa fa-user custom-icon" style="font-size: 30px;"></i>
+                                        </a>
+                                        <div class="dropdown-menu user-dropdown dropdown-menu-end" aria-labelledby="userDropdown"
+                                             style="background: transparent linear-gradient(196deg, #2B73C5 0%, #183A60 100%) 0% 0% no-repeat padding-box; width: 200px; right: 0;">
+                                            <div class="arrow-up"
+                                                 style="width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #ffffff; margin: 0 auto;">
+                                            </div>
+                                            <div class="user-circle"
+                                                 style="width: 60px; height: 60px; border-radius: 50%; text-align: center; margin: 10px auto;">
+                                                <i class="fa fa-user-circle" style="font-size: 50px; color: white;"></i>
+                                            </div>
+                                            <a class="dropdown-item" href="#"
+                                               style="background-color: transparent !important; color: #000 !important;">
+                                                <button class="btn btn-primary btn-block"
+                                                        style="background-color: white; margin-left: 40px; margin-top: 5px; color: black;">Ver
+                                                    Perfil</button>
+                                            </a>
+                                            <a class="dropdown-item" href="#"
+                                               style="background-color: transparent !important; color: #000 !important;">
+                                                <button class="btn btn-danger btn-block"
+                                                        style="background-color: white; margin-top: 10px; color: black;">
+                                                    <i class="fa fa-sign-out" style="margin-right: 10px;"></i> Cerrar Sesión
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+
+
+                        <div th:fragment="formulario" class="container-box">
+                            <h2 class="titulo">Iniciar Sesión</h2>
+                            <form>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="background: #FFFFFF; border: 1px solid #707070; padding-top: 5px;">
+                                                <i class="fa fa-user" style="color: green; padding-right: 5px;"></i> Usuario
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Ingrese su usuario">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="background: #FFFFFF; border: 1px solid #707070; ">
+                                                <i class="fa fa-lock" style="color: green; padding-right: 5px;"></i> Contraseña
+                                            </span>
+                                        </div>
+                                        <input type="password" class="form-control" placeholder="Ingrese su contraseña">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn boton" formaction="/index">Ingresar</button>
+                                <p class="registrate">
+                                    ¿Todavía no tienes cuenta? <a href="/Registro" style="color: #2F73C1;">Regístrate</a>
+                                </p>
+                            </form>
+                        </div>
+
+
+                        <div th:fragment="formularioRe" class="container-box">
+                            <h2 class="titulo">Registro</h2>
+                            <form>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            Nombre y apellidos
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Nombre">
+                                </div>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            Identificación
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Identificación">
+                                </div>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            Cantón
+                                        </span>
+                                    </div>
+                                    <select class="form-control">
+                                        <option value="canton1">San José</option>
+                                        <option value="canton2">Escazú</option>
+                                        <option value="canton2">Desamparados</option>
+                                        <option value="canton2">Goicoechea</option>
+                                        <option value="canton2">Santa Ana</option>
+                                        <option value="canton2">Alajuelita</option>
+                                        <option value="canton2">Moravia</option>
+                                        <!-- Agrega aquí los cantones disponibles -->
+                                    </select>
+                                </div>
+                                <!-- Agrega más campos aquí como Teléfono, Email, Contraseña, etc. -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    Teléfono                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Teléfono">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    Email
+                                                </span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    Contraseña
+                                                </span>
+                                            </div>
+                                            <input type="password" class="form-control" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group input-group">
+                                            <div class="input-group-prepend">
+
+                                            </div>
+                                            <input type="password" class="form-control" placeholder="Confirmar Contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn boton">Registrarse</button>
+
+                            </form>
+                        </div>
+
+                </body>
+
+                </html>
