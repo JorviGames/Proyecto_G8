@@ -15,4 +15,10 @@ public class EmpleadoController {
         return "/empleado/inicio";
     }
     
+    @GetMapping("/modificar")
+    public String modificarEmpelado(Model model) {
+
+        return "/empleado/modificar";
+    }
+    
 }

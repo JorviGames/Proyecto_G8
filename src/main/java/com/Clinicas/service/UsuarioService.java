@@ -4,10 +4,22 @@
  */
 package com.Clinicas.service;
 
+import com.Clinicas.domain.Usuario;
+import java.util.List;
+
 /**
  *
  * @author Dylan
  */
 public interface UsuarioService {
+    
+    public List<Usuario> getUsuarios();
+    
+    public Usuario getUsuario(Usuario cita);
+    
+    public void save(Usuario cita);
+    
+    public void delete(Usuario cita);
+    
     
 }

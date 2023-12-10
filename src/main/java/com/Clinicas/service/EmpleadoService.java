@@ -4,10 +4,21 @@
  */
 package com.Clinicas.service;
 
+import com.Clinicas.domain.Empleado;
+import java.util.List;
+
 /**
  *
  * @author Dylan
  */
 public interface EmpleadoService {
+    
+    public List<Empleado> getEmpleados();
+    
+    public Empleado getEmpleado(Empleado cita);
+    
+    public void save(Empleado cita);
+    
+    public void delete(Empleado cita);
     
 }

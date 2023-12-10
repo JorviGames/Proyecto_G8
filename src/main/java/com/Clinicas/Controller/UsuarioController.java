@@ -15,4 +15,11 @@ public class UsuarioController {
        
         return "/usuario/inicio";
     }
+    
+    @GetMapping("/modificar")
+    public String modificarUsuario(Model model) {
+
+        return "/perfil/modificar";
+    }
+    
 }
