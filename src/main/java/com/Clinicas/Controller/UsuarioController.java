@@ -7,19 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/historial")
-public class HistorialController {
+@RequestMapping("/usuario")
+public class UsuarioController {
     
     @GetMapping("/inicio")
-    public String listarHistorial(Model model) {
+    public String listarExamenes(Model model) {
        
-        return "/historial/inicio";
+        return "/usuario/inicio";
     }
-    
-    @GetMapping("/modificar")
-    public String modificarHistorial(Model model) {
-
-        return "/historial/modificar";
-    }
-    
 }

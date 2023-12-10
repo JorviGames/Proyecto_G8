@@ -1,6 +1,6 @@
+
 package com.Clinicas.Controller;
 
-import com.Clinicas.domain.Vacuna;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,19 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/vacunacion")
-public class VacunaController {
+@RequestMapping("/perfil")
+public class PerfilController {
     
     @GetMapping("/inicio")
-    public String listarVacunas(Model model) {
+    public String verPerfil(Model model) {
        
-        return "/vacunacion/inicio";
+        return "/perfil/inicio";
     }
     
-   @GetMapping("/modificar")
-    public String vacunaModifica(Model model) {
-        
-        return "/vacunacion/modificar";
+    @GetMapping("/modificar")
+    public String modificarPefl(Model model) {
+
+        return "/perfil/modificar";
     }
     
 }

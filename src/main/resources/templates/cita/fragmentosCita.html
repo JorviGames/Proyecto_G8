@@ -24,11 +24,11 @@
             </div>
 
 
-            <div style="margin-top: -4%; margin-left: 55%; width: 450px;"> 
+            <div style="margin-top: -3.7%; margin-left: 55%; width: 450px;"> 
                 <form>
                     <div class="form-group" >
-                        <label for="hora" style="color: #4B9F38; font-weight: bold;">Hora:</label>
-                        <input type="time" class="form-control" id="hora" style="border-radius: 25px; height: 55px; border-width: 2px;">
+                        <label for="hora" style="color: #4B9F38; position: absolute; top: 29%; font-weight: bold;">Hora:</label>
+                        <input type="time" class="form-control" id="hora" style="border-radius: 25px; height: 55px; border-width: 2px; margin-top: -25px">
                     </div>
                 </form>
             </div>
@@ -51,6 +51,11 @@
                 </form>
             </div>
 
+            <div sec:authorize="hasRole('ROLE_ADMIN')" style="flex-direction: column; justify-content: flex-end; position: absolute; left: 38%; right: 0; bottom: 10px; padding: 10px; box-sizing: border-box; top: 90%;">
+                <a th:href="@{/cita/modificar}" class="btn btn-primary" style="width: 20%;">Modificar</a>
+                <button class="btn btn-danger" style="width: 20%;">Eliminar</button>
+            </div>
+
         </section>
 
         <section th:fragment="buscar">
@@ -58,6 +63,51 @@
         </section>
 
 
+
+        <section th:fragment="modificarCita">
+
+            <div style="margin-top: 40px; margin-left: 22%; width: 1085px;">
+                <form>
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="idCita" style="color: #4B9F38; font-weight: bold;">ID de Cita:</label>
+                        <input type="number" class="form-control" id="idCita" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese el ID de la cita" />
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="fechaCita" style="color: #4B9F38; font-weight: bold;">Fecha de la Cita:</label>
+                        <input type="date" class="form-control" id="fechaCita" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" />
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="horaCita" style="color: #4B9F38; font-weight: bold;">Hora de la Cita:</label>
+                        <input type="time" class="form-control" id="horaCita" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" />
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="centroMedico" style="color: #4B9F38; font-weight: bold;">Nombre del Centro Médico:</label>
+                        <input type="text" class="form-control" id="centroMedico" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese el nombre del centro médico" />
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="motivoCita" style="color: #4B9F38; font-weight: bold;">Motivo de la Cita:</label>
+                        <input type="text" class="form-control" id="motivoCita" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese el motivo de la cita" />
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-radius: 25px; margin-top: 2%;">
+                        <button type="submit" class="btn btn-success" style="font-size: 26px; color: #2F73C0; font-weight: bold; color: white; border-radius: 25px; height: 55px; width: 200px; border-width: 2px; text-align: center;">Actualizar</button>
+
+                        <a th:href="@{/cita/inicio}">
+                            <button type="button" class="btn btn-secondary" style="background-color: #808080; color: white; border-radius: 25px; padding: 8px 50px; font-size: 26px; border: none; font-weight: bold;">Volver</button>
+                        </a>
+
+                    </div> 
+                    
+                </form>
+            </div>
+
+
+
+        </section>
 
 
     </body>

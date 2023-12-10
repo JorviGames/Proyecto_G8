@@ -17,4 +17,10 @@ public class CitaController {
         return "/cita/inicio";
     }
     
+    @GetMapping("/modificar")
+    public String modificarCita(Model model) {
+
+        return "/cita/modificar";
+    }
+    
 }
