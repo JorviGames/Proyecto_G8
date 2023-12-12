@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Perfil</title>
+    </head>
+    <body>
+
+
+        <section th:fragment="usuarios">
+
+            <h2 style="color: #4B9F38; text-align: center;">Usuarios</h2>
+            <table style="width: 80%; margin: 50px auto; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #4B9F38; color: white;">
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Identificación</th>
+                        <th>Cantón</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <-<!-- Prueba -->
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Usuario 1</td>
+                        <td>123456789</td>
+                        <td>S</td>
+                        <td>22223333</td>
+                        <td>usuario1@email.com</td>
+                        <td>
+
+                            <a href="#" style="background-color: #dc3545; color: white; padding: 2px 10px; text-decoration: none; border-radius: 20px; font-weight: bold;">Eliminar</a>
+                            <a th:href="@{/usuario/modificar}" style="background-color: #28a745; color: white; padding: 2px 10px; text-decoration: none; border-radius: 20px; font-weight: bold;">Modificar</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Usuario 2</td>
+                        <td>987654321</td>
+                        <td>D</td>
+                        <td>55556666</td>
+                        <td>usuario2@email.com</td>
+                        <td>
+                            <a href="#" style="background-color: #dc3545; color: white; padding: 2px 10px; text-decoration: none; border-radius: 20px; font-weight: bold;">Eliminar</a>
+                            <a th:href="@{/usuario/modificar}" style="background-color: #28a745; color: white; padding: 2px 10px; text-decoration: none; border-radius: 20px; font-weight: bold;">Modificar</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+        </section>
+
+    </body>
+</html>

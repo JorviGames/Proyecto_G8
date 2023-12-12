@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Perfil</title>
+    </head>
+
+    <body>
+
+        <section th:fragment="perfilInicio" style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+
+            <div style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 5px solid #4B9F38; display: flex; justify-content: center; align-items: center; margin-top: -37%">
+                <img style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIBSYirFCj-4NsUuigL4IN1OLm8YGbf_zh6g&usqp=CAU" alt="Foto de perfil">
+
+            </div>
+
+
+            <div style="position: absolute; top: 36.5%; margin-left: -50%; text-align: left;">
+                <p style="font-size: 26px; color: #2F73C0; font-weight: bold; margin-bottom: 8%;">Información personal</p>
+
+            </div>
+
+            <div style="position: absolute; top: 36.5%; margin-left: 50%; text-align: left;">
+                <p style="font-size: 26px; color: #2F73C0; font-weight: bold; margin-bottom: 8%;">Opciones</p>
+
+                <div style="text-align: left; align-items: center; margin-left: -18%; margin-top: 10%;">
+                    <a th:href="@{/perfil/modificar}">
+                        <button type="button" class="btn btn-primary" style="background-color: #4B9F38; color: white; border-radius: 25px; padding: 10px 20px; font-size: 20px; border: none; font-weight: bold;">Modificar perfil</button>
+                    </a>
+                </div>
+
+
+                <div style="text-align: left; align-items: center; margin-left: -18%; margin-top: 16%;">
+                    <button type="button" class="btn btn-primary" style="background-color: #4B9F38; color: white; border-radius: 25px; padding: 10px 28px; font-size: 20px; border: none; font-weight: bold;">Eliminar perfil</button>
+                </div>
+
+            </div>
+
+            <div style="position: absolute; top: 46.5%; margin-left: -58%; text-align: left;">
+                <p style="font-size: 26px; color: #4B9F38; font-weight: bold; margin-bottom: 40%;">Nombre</p>
+                <p style="font-size: 14px; color: #666; font-weight: bold; margin-bottom: 0;">{Nombre}</p>              
+                <div style="border-bottom: 1px solid #808080; position: absolute; left: 0; right: 0; width: 270px;"></div>
+
+            </div>
+
+            <div style="position: absolute; top: 59.5%; margin-left: -54.5%; text-align: left;">
+                <p style="font-size: 26px; color: #4B9F38; font-weight: bold; margin-bottom: 30%;">Identificacion</p>
+                <p style="font-size: 14px; color: #666; font-weight: bold; margin-bottom: 0;">{Identificacion}</p>              
+                <div style="border-bottom: 1px solid #808080; position: absolute; left: 0; right: 0; width: 270px;"></div>
+
+            </div>
+
+            <div style="position: absolute; top: 75.5%; margin-left: -57.5%; text-align: left;">
+                <p style="font-size: 26px; color: #4B9F38; font-weight: bold; margin-bottom: 40%;">Telefono</p>
+                <p style="font-size: 14px; color: #666; font-weight: bold; margin-bottom: 0;">{Telefono}</p>              
+                <div style="border-bottom: 1px solid #808080; position: absolute; left: 0; right: 0; width: 270px;"></div>
+
+            </div>
+
+
+            <div style="position: absolute; top: 46%; margin-left: -24%; text-align: left;">
+                <p style="font-size: 26px; color: #4B9F38; font-weight: bold; margin-bottom: 40%;">Apellidos</p>
+                <p style="font-size: 14px; color: #666; font-weight: bold; margin-bottom: 0;">{apellidos}</p>              
+                <div style="border-bottom: 1px solid #808080; position: absolute; left: 0; right: 0; width: 270px;"></div>
+
+            </div>
+
+            <div style="position: absolute; top: 59.5%; margin-left: -25.5%; text-align: left;">
+                <p style="font-size: 26px; color: #4B9F38; font-weight: bold; margin-bottom: 56%;">Canton</p>
+                <p style="font-size: 14px; color: #666; font-weight: bold; margin-bottom: 0;">{Canton}</p>              
+                <div style="border-bottom: 1px solid #808080; position: absolute; left: 0; right: 0; width: 270px;"></div>
+
+            </div>
+
+            <div style="position: absolute; top: 75.5%; margin-left: -26.5%; text-align: left;">
+                <p style="font-size: 26px; color: #4B9F38; font-weight: bold; margin-bottom: 62%;">Email</p>
+                <p style="font-size: 14px; color: #666; font-weight: bold; margin-bottom: 0;">{Email}</p>              
+                <div style="border-bottom: 1px solid #808080; position: absolute; left: 0; right: 0; width: 270px;"></div>
+
+            </div>
+
+        </section>
+
+        <section th:fragment="modificarPerfil">
+
+            <div style="position: relative; top: 40%; margin-left: 20%; text-align: left;">
+                <p style="font-size: 26px; color: #2F73C0; font-weight: bold; margin-bottom: 2%;">Modificar información personal</p>
+
+            </div>
+
+            <div style="margin-top: 40px; margin-left: 22%; width: 1085px;">
+                <form>
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="nombre" style="color: #4B9F38; font-weight: bold;">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese su nombre">
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="apellidos" style="color: #4B9F38; font-weight: bold;">Apellidos:</label>
+                        <input type="text" class="form-control" id="apellidos" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese sus apellidos">
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="identificacion" style="color: #4B9F38; font-weight: bold;">Identificación:</label>
+                        <input type="text" class="form-control" id="identificacion" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese su identificación">
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="canton" style="color: #4B9F38; font-weight: bold;">Canton:</label>
+                        <input type="text" class="form-control" id="canton" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese su canton">
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="telefono" style="color: #4B9F38; font-weight: bold;">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese su número de teléfono">
+                    </div>
+
+                    <div style="margin-bottom: 15px; border-radius: 25px;">
+                        <label for="email" style="color: #4B9F38; font-weight: bold;">Email:</label>
+                        <input type="email" class="form-control" id="email" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese su dirección de correo electrónico">
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-radius: 25px; margin-top: 2%;">
+                        <button type="submit" class="btn btn-success" style="font-size: 26px; color: #2F73C0; font-weight: bold; color: white; border-radius: 25px; height: 55px; width: 200px; border-width: 2px; text-align: center;">Actualizar</button>
+
+                        <a href="javascript:history.back()">
+                            <button type="button" class="btn btn-secondary" style="background-color: #808080; color: white; border-radius: 25px; padding: 8px 50px; font-size: 26px; border: none; font-weight: bold;">Volver</button>
+                        </a>
+
+                    </div>
+
+                </form>
+            </div>
+
+
+
+
+        </section>
+
+    </body>
+
+</html>

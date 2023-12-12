@@ -12,10 +12,10 @@
 
 
 
-            <a th:href="@{/}">
+            <a th:href="@{/perfil/inicio}">
                 <div style="text-align: center; margin-top: 20px;">
 
-                    <img src="" alt="Foto de perfil" style="width: 100px; height: 100px; border-radius: 50%;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIBSYirFCj-4NsUuigL4IN1OLm8YGbf_zh6g&usqp=CAU" alt="Foto de perfil" style="width: 100px; height: 100px; border-radius: 50%;">
 
                 </div>
             </a>
@@ -27,12 +27,12 @@
         </section>
 
         <section th:fragment="buscar">
-            <div style="text-align:left; margin-top: 20px; margin-left: 18%;">
-                <input type="text" placeholder="Buscar citas" style="border-radius: 25px; padding: 10px; font-size: 16px; width: 340px; height: 56px;">
-                    <button style="position: absolute; top: 27.3%; left: 33%; border-radius: 49%; background-color: #4B9F38; color: white; width: 56px; height: 56px;">
+            <div style="text-align:left; margin-top: 20px; margin-left: 18%; display: flex; align-items: center;">
+                <input type="text" placeholder="Buscar citas" style="border-radius: 25px 0 0 25px; padding: 10px; font-size: 16px; width: 340px; height: 56px; border: 1px solid #ccc; border-right: none;">
+                    <button style="border-radius: 0 49% 49% 0; background-color: #4B9F38; color: white; width: 56px; height: 56px; border: 1px solid #4B9F38;">
                         <i class="fa fa-search"></i>
                     </button>
-                    <h2 style="margin-left: 8%; color: #4B9F38; display: inline; font-size: 50px; font-weight: bold;">Citas previas</h2>
+                    <h2 style="margin-left: 5%; color: #4B9F38; font-size: 50px; font-weight: bold;">Citas previas</h2>
             </div>
 
         </section>
@@ -42,7 +42,8 @@
             <div style="display: flex; justify-content: center; gap: 140px; padding: 20px; margin-top: 24px;">
 
 
-                <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px;">
+                <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px; position: relative;">
+
                     <h2 style="color: #000;">Motivo</h2>
                     <br>
                         <p style="font-size: 25px;">Hora de la cita</p>
@@ -50,14 +51,18 @@
                         <br>
                             <p style="font-size: 32px; font-weight: bold;">Fecha</p>
 
-                            <a href="/historial/modificar/" class="btn btn-primary" style="position: absolute; top: 69%; left: 20.5%; width: 142px; height: 40px;">Modificar</a>
-
-                            <button class="btn btn-danger" style="position: absolute; top: 69%; left: 27.8%; width: 142px; height: 40px;">Eliminar</button>
+                            <div style="display: flex; flex-direction: column; justify-content: flex-end; height: 100%; position: absolute; left: -4%; right: 0; bottom: -20%; padding: 10px; box-sizing: border-box;">
+                                <a th:href="@{/historial/modificar}" class="btn btn-primary" style="width: 104.2%; ">Modificar</a>
+                                <button class="btn btn-danger" style="width: 104.2%;">Eliminar</button>
+                            </div>
 
                             </div>
 
 
-                            <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px;">
+
+
+                            <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px; position: relative;">
+
                                 <h2 style="color: #000;">Motivo</h2>
                                 <br>
                                     <p style="font-size: 25px;">Hora de la cita</p>
@@ -65,15 +70,18 @@
                                     <br>
                                         <p style="font-size: 32px; font-weight: bold;">Fecha</p>
 
-                                        <a href="/historial/modificar/" class="btn btn-primary" style="position: absolute; top: 69%; left: 42.6%; width: 142px; height: 40px;">Modificar</a>
-
-                                        <button class="btn btn-danger" style="position: absolute; top: 69%; left: 49.9%; width: 142px; height: 40px;">Eliminar</button>
+                                        <div style="display: flex; flex-direction: column; justify-content: flex-end; height: 100%; position: absolute; left: -4%; right: 0; bottom: -20%; padding: 10px; box-sizing: border-box;">
+                                            <a th:href="@{/historial/modificar}" class="btn btn-primary" style="width: 104.2%;">Modificar</a>
+                                            <button class="btn btn-danger" style="width: 104.2%;">Eliminar</button>
+                                        </div>
 
                                         </div>
 
 
 
-                                        <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px;">
+
+                                        <div style="width: 280px; height: 310px; background: linear-gradient(180deg, #2fb2c1 0%, #0a8a5a 100%); border: 1px solid #707070; border-radius: 10px; color: #fff; text-align: center; padding: 20px; position: relative;">
+
                                             <h2 style="color: #000;">Motivo</h2>
                                             <br>
                                                 <p style="font-size: 25px;">Hora de la cita</p>
@@ -81,13 +89,55 @@
                                                 <br>
                                                     <p style="font-size: 32px; font-weight: bold;">Fecha</p>
 
-                                                    <a href="/historial/modificar/" class="btn btn-primary" style="position: absolute; top: 69%; left: 64.8%; width: 142px; height: 40px;">Modificar</a>
-
-                                                    <button class="btn btn-danger" style="position: absolute; top: 69%; left: 72.1%; width: 142px; height: 40px;">Eliminar</button>
-
+                                                    <div style="display: flex; flex-direction: column; justify-content: flex-end; height: 100%; position: absolute; left: -4%; right: 0; bottom: -20%; padding: 10px; box-sizing: border-box;">
+                                                        <a th:href="@{/historial/modificar}" class="btn btn-primary" style="width: 104.2%;">Modificar</a>
+                                                        <button class="btn btn-danger" style="width: 104.2%;">Eliminar</button>
                                                     </div>
 
                                                     </div>
+
+
+                                                    </div>
+
+                                                    </section>
+
+                                                    <section th:fragment="modificar">
+
+                                                        <div style="margin-top: 40px; margin-left: 22%; width: 1085px;">
+                                                            <form>
+                                                                <div style="margin-bottom: 15px; border-radius: 25px;">
+                                                                    <label for="motivo" style="color: #4B9F38; font-weight: bold;">Motivo:</label>
+                                                                    <input type="text" class="form-control" id="motivo" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese el motivo" />
+                                                                </div>
+
+                                                                <div style="margin-bottom: 15px; border-radius: 25px;">
+                                                                    <label for="hora" style="color: #4B9F38; font-weight: bold;">Hora:</label>
+                                                                    <input type="time" class="form-control" id="hora" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" />
+                                                                </div>
+
+                                                                <div style="margin-bottom: 15px; border-radius: 25px;">
+                                                                    <label for="lugar" style="color: #4B9F38; font-weight: bold;">Lugar:</label>
+                                                                    <input type="text" class="form-control" id="lugar" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese el lugar" />
+                                                                </div>
+
+                                                                <div style="margin-bottom: 15px; border-radius: 25px;">
+                                                                    <label for="fecha" style="color: #4B9F38; font-weight: bold;">Fecha:</label>
+                                                                    <input type="date" class="form-control" id="fecha" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" />
+                                                                </div>
+
+                                                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-radius: 25px; margin-top: 2%;">
+                                                                    <button type="submit" class="btn btn-success" style="font-size: 26px; color: #2F73C0; font-weight: bold; color: white; border-radius: 25px; height: 55px; width: 200px; border-width: 2px; text-align: center;">Actualizar</button>
+
+                                                                    <a th:href="@{/historial/inicio}">
+                                                                        <button type="button" class="btn btn-secondary" style="background-color: #808080; color: white; border-radius: 25px; padding: 8px 50px; font-size: 26px; border: none; font-weight: bold;">Volver</button>
+                                                                    </a>
+
+                                                                </div> 
+
+                                                            </form>
+                                                        </div>
+
+
 
                                                     </section>
 

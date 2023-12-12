@@ -16,4 +16,10 @@ public class ExamenController {
         return "/examen/inicio";
     }
     
+    @GetMapping("/modificar")
+    public String modificarExamen(Model model) {
+
+        return "/examen/modificar";
+    }
+    
 }

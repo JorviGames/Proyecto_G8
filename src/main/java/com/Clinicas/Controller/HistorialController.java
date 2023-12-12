@@ -16,4 +16,10 @@ public class HistorialController {
         return "/historial/inicio";
     }
     
+    @GetMapping("/modificar")
+    public String modificarHistorial(Model model) {
+
+        return "/historial/modificar";
+    }
+    
 }

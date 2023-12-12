@@ -7,7 +7,9 @@
     <body>
 
 
-        <section th:replace ="vacunacion/fragmentoVacunacion :: header" />
+        <header th:replace = "layout/plantilla :: header" />
+        
+        <section th:replace ="historial/fragmentosHistorial :: modificar" />
         
         <footer th:replace = "layout/plantilla :: footer" />
 
