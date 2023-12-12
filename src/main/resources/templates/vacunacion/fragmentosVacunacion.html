@@ -4,7 +4,6 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
         <title>Vacunacion</title>
-        
 
     </head>
     <body>
@@ -22,80 +21,77 @@
                 <div style="position: absolute; top: 34%; margin-left: 6.5%; text-align: left;">
                     <p style="font-size: 26px; color: #4B9F38; font-weight: bold; margin-bottom: 8%;">Agendar cita para vacunación</p>
 
-                    <div style="text-align: left; align-items: center;">
-                        <label for="fecha" style="color: #4B9F38; font-weight: bold; margin-bottom: 0; display: block;">Fecha:</label>
-                        <input type="date" style="border-radius: 25px; padding: 10px; font-size: 16px; width: 381px; height: 56px; border: 1px solid #ccc;">
-                    </div>
+                    <form action="/vacunacion/agendar" method="post">
+                        <div style="text-align: left; align-items: center;">
+                            <label for="fecha" style="color: #4B9F38; font-weight: bold; margin-bottom: 0; display: block;">Fecha:</label>
+                            <input type="date" name="fecha" style="border-radius: 25px; padding: 10px; font-size: 16px; width: 381px; height: 56px; border: 1px solid #ccc;">
+                        </div>
 
-
-
-                    <div style="margin-top: 30px; width: 381px;"> 
-                        <form>
-                            <div class="form-group" >
+                        <div style="margin-top: 30px; width: 381px;"> 
+                            <div class="form-group">
                                 <label for="hora" style="color: #4B9F38; font-weight: bold;">Hora de vacunacion:</label>
-                                <input type="time" class="form-control" id="hora" style="border-radius: 25px; height: 55px; border-width: 2px;">
+                                <input type="time" name="hora" class="form-control" style="border-radius: 25px; height: 55px; border-width: 2px;">
                             </div>
-                        </form>
-                    </div>
+                        </div>
 
-                    <div style="text-align: left; align-items: center; margin-left: 12%; margin-top: 35%;">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#disponibilidadModal">
-                            Consultar disponibilidad
-                        </button>
-                    </div>
-
-                </div>
-
-                <!-- termina consulta -->
-                <div th:each="vacuna : ${vacunas}" 
-                     style="width: 330px; min-height: 120px; border-radius: 20px; background-color: #ffffff; margin-top: 8%; margin-bottom: 2.5%; border: 1px solid #808080; text-align: right; padding: 10px; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-left: 65%; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
-
-                    <p style="font-size: 20px; color: #D19131; font-weight: bold; margin-bottom: 10px; text-align: center; position: relative;" th:text="${vacuna.nombre}">Nombre vacuna</p>
-                    <div style="border-bottom: 1px solid #808080; margin-bottom: 10px; width: 80%; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
-
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-
-                        <p style="font-size: 16px; color: #666; font-weight: bold; margin-bottom: 5px; text-align: center;">Dosis administrada: <span th:text="${vacuna.dosis}"></span></p>
-                        <p style="font-size: 16px; color: #666; font-weight: bold; margin-bottom: 5px; text-align: center;">Tipo de vacuna: <span th:text="${vacuna.tipo}"></span></p>
-                        <p style="font-size: 16px; color: #666; font-weight: bold; text-align: center;">Fecha de campaña: <span style="font-size: 14px;" th:text="${vacuna.fechaDeCampanaStart} +' - '+ ${vacuna.fechaDeCampanaEnd}"></span></p>
-
-                    </div>
-
-                </div>
-
-
-
-
-
-
-                <div style="position: absolute; top: 34%; left: 68.5%; text-align: right;">
-                    <p style="font-size: 26px; color: #4B9F38; font-weight: bold;">Buscar vacunacion previa</p>
-
-                    <div sec:authorize="hasRole('ROLE_ADMIN')" style="flex-direction: column; justify-content: flex-end; position: absolute; left: -7%; right: 0; bottom: 10px; padding: 10px; top: 93%;">
-                        <a th:href="@{/vacunacion/modificar}" class="btn btn-primary" style="width: 50%;">Modificar</a>
-                        <button class="btn btn-danger" style="width: 45%;">Eliminar</button>
-                    </div>
-
-                    <div style="text-align: left; align-items: center;">
-
-                        <input type="text" placeholder="Buscar vacunacion" style="border-radius: 25px 0 0 25px; padding: 10px; font-size: 16px; width: 270px; height: 56px; border: 1px solid #ccc; border-right: none;">
-                            <button style="border-radius: 0 49% 49% 0; background-color: #4B9F38; color: white; width: 56px; height: 56px; margin-left: -20px; border: 1px solid #4B9F38;">
-                                <i class="fa fa-search"></i>
+                        <div style="text-align: left; align-items: center; margin-left: 12%; margin-top: 35%;">
+                            <button type="submit" class="btn btn-primary" style="background-color: #4B9F38; color: white; border-radius: 25px; padding: 10px 20px; font-size: 20px; border: none; font-weight: bold;">
+                                Agendar cita
                             </button>
-                    </div>
+                        </div>
+                    </form>
+                </div>
 
+            
+
+
+            <!-- termina consulta -->
+            <div th:each="vacuna : ${vacunas}" 
+                 style="width: 330px; min-height: 120px; border-radius: 20px; background-color: #ffffff; margin-top: 8%; margin-bottom: 2.5%; border: 1px solid #808080; text-align: right; padding: 10px; display: flex; justify-content: center; align-items: center; flex-direction: column; margin-left: 65%; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+
+                <p style="font-size: 20px; color: #D19131; font-weight: bold; margin-bottom: 10px; text-align: center; position: relative;" th:text="${vacuna.nombre}">Nombre vacuna</p>
+                <div style="border-bottom: 1px solid #808080; margin-bottom: 10px; width: 80%; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);"></div>
+
+                <div style="display: flex; flex-direction: column; align-items: center;">
+
+                    <p style="font-size: 16px; color: #666; font-weight: bold; margin-bottom: 5px; text-align: center;">Dosis administrada: <span th:text="${vacuna.dosis}"></span></p>
+                    <p style="font-size: 16px; color: #666; font-weight: bold; margin-bottom: 5px; text-align: center;">Tipo de vacuna: <span th:text="${vacuna.tipo}"></span></p>
+                    <p style="font-size: 16px; color: #666; font-weight: bold; text-align: center;">Fecha de campaña: <span style="font-size: 14px;" th:text="${vacuna.fechaDeCampanaStart} +' - '+ ${vacuna.fechaDeCampanaEnd}"></span></p>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <div style="position: absolute; top: 34%; left: 68.5%; text-align: right;">
+                <p style="font-size: 26px; color: #4B9F38; font-weight: bold;">Buscar vacunacion previa</p>
+
+                
+                <div style="text-align: left; align-items: center;">
+
+                    <input type="text" placeholder="Buscar vacunacion" style="border-radius: 25px 0 0 25px; padding: 10px; font-size: 16px; width: 270px; height: 56px; border: 1px solid #ccc; border-right: none;">
+                        <button style="border-radius: 0 49% 49% 0; background-color: #4B9F38; color: white; width: 56px; height: 56px; margin-left: -20px; border: 1px solid #4B9F38;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                </div>
+
+                <div th:each="cita : ${citas}">
                     <div style=" width: 315px; height: 110px; border-radius: 20px; background-color: #ffffff; margin-left: -1%; margin-top: 8%; margin-bottom: 2.5%; border: 1px solid #808080; position: relative; text-align: center;">
 
-                        <p style="position: absolute; top: 15%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #D19131; font-weight: bold;">Nombre vacuna</p>
+                        <p style="position: absolute; top: 15%; left: 50%; transform: translate(-50%, -50%); font-size: 20px; color: #D19131; font-weight: bold;">Fecha y hora de la cita</p>
                         <div style="border-bottom: 1px solid #808080; position: absolute; bottom: 70%; left: 0; right: 0;"></div>
 
-                        <p style="position: absolute; top: 42%; left: 24.5%; transform: translate(-50%, -50%); font-size: 16px; color: #666; font-weight: bold;">Dosis administrada:</p>
-                        <p style="position: absolute; top: 62%; left: 20%; transform: translate(-50%, -50%); font-size: 16px; color: #666; font-weight: bold;">Tipo de vacuna:</p>
-                        <p style="position: absolute; top: 82%; left: 24.5%; transform: translate(-50%, -50%); font-size: 16px; color: #666; font-weight: bold;">Fecha de campaña:</p>
+                        <!-- Muestra la fecha y hora de la cita -->
+                        <p style="position: absolute; top: 42%; left: 24.5%; transform: translate(-50%, -50%); font-size: 16px; color: #666; font-weight: bold;">Fecha: <span th:text="${cita.fecha_cita}"></span></p>
+                        <p style="position: absolute; top: 62%; left: 20%; transform: translate(-50%, -50%); font-size: 16px; color: #666; font-weight: bold;">Hora: <span th:text="${cita.hora_cita}"></span></p>
 
                     </div>
-
-                </div>
+                </div> 
+            </div>
 
 
         </section>
@@ -141,37 +137,6 @@
             </div>
 
         </section>
-
-        <div class="modal fade" id="disponibilidadModal" tabindex="-1" role="dialog" aria-labelledby="disponibilidadModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="disponibilidadModalLabel">Disponibilidad de citas</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Aquí puedes mostrar un mensaje si hay citas disponibles -->
-                        <p>¡Hay citas disponibles para la fecha seleccionada!</p>
-                        <p>Selecciona una vacuna:</p>
-                        <!-- Lista de opciones de vacunas disponibles -->
-                        <select class="form-control">
-                            <option value="vacunaA">Vacuna A</option>
-                            <option value="vacunaB">Vacuna B</option>
-                            <!-- Agrega las opciones de vacunas desde la base de datos -->
-                        </select>
-                        <!-- Mensaje si no hay citas disponibles -->
-                        <p>No hay citas disponibles para la fecha seleccionada.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
 
     </body>
 </html>

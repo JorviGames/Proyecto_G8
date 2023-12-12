@@ -27,8 +27,8 @@ public class Vacuna {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_vacuna;
 
-    private LocalDate fecha_vacuna;
-    private LocalTime hora_vacuna;
+    private LocalDate fechaCita;
+    private LocalTime horaCita;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
@@ -42,20 +42,20 @@ public class Vacuna {
         this.id_vacuna = id_vacuna;
     }
 
-    public LocalDate getFecha_vacuna() {
-        return fecha_vacuna;
+    public LocalDate getfechaCita() {
+        return fechaCita;
     }
 
-    public void setFecha_vacuna(LocalDate fecha_vacuna) {
-        this.fecha_vacuna = fecha_vacuna;
+    public void setFecha_vacuna(LocalDate fechaCita) {
+        this.fechaCita = fechaCita;
     }
 
-    public LocalTime getHora_vacuna() {
-        return hora_vacuna;
+    public LocalTime gethoraCita() {
+        return horaCita;
     }
 
-    public void setHora_vacuna(LocalTime hora_vacuna) {
-        this.hora_vacuna = hora_vacuna;
+    public void setHora_vacuna(LocalTime horaCita) {
+        this.horaCita = horaCita;
     }
 
     public Usuario getUsuario() {
