@@ -17,5 +17,6 @@ public interface UsuarioService {
 
     boolean registrarUsuario(Usuario usuario);
 
+    Usuario obtenerUsuarioPorEmailYContrasena(String email, String contrasena);
     Usuario obtenerUsuarioPorEmail(String email);
 }

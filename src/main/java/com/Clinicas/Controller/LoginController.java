@@ -31,20 +31,17 @@ public class LoginController {
 
     @GetMapping("/login")
     public String mostrarFormularioLogin(HttpSession session, Model model) {
-        boolean sessionActive = session.getAttribute("usuarioAutenticado") != null; // Verifica si el usuario está autenticado
+        boolean sessionActive = session.getAttribute("usuario") != null;
         model.addAttribute("sessionActiva", sessionActive);
         return "login"; // Nombre de la página de inicio de sesión
     }
 
     @PostMapping("/login")
-    public String procesarInicioSesion(@RequestParam("usuario") String email, 
-                                       @RequestParam("contrasena") String contrasena, 
-                                       HttpSession session, Model model) {
-        Usuario usuarioAutenticado = usuarioService.obtenerUsuarioPorEmailYContrasena(email, contrasena);
-        
-        if (usuarioAutenticado != null) {
-            session.setAttribute("usuarioAutenticado", usuarioAutenticado); // Guarda el usuario autenticado en la sesión
-            return "redirect:/perfil"; // Redirige al perfil del usuario autenticado
+    public String procesarInicioSesion(@RequestParam("usuario") String email, @RequestParam("contrasena") String contrasena, HttpSession session, Model model) {
+        boolean credencialesValidas = usuarioService.validarCredenciales(email, contrasena);
+        if (credencialesValidas) {
+            session.setAttribute("usuario", email);
+            return "redirect:/"; // Redirige al usuario a la página de inicio
         } else {
             model.addAttribute("error", "Credenciales no válidas"); // Agrega el mensaje de error al modelo
             return "login"; // Vuelve a cargar la página de inicio de sesión

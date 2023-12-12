@@ -38,8 +38,15 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public Usuario obtenerUsuarioPorEmailYContrasena(String email, String contrasena) {
+        // Retorna el usuario por email y contraseña
+        return usuarioDao.findByEmailAndContrasena(email, contrasena);
+    }
+    
+    @Override
     public Usuario obtenerUsuarioPorEmail(String email) {
         return usuarioDao.findByEmail(email);
     }
+
 
 }
