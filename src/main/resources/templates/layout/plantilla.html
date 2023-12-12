@@ -41,10 +41,16 @@
                                 <div class="user-circle" style="width: 60px; height: 60px; border-radius: 50%; text-align: center; margin: 10px auto;">
                                     <i class="fa fa-user-circle" style="font-size: 50px; color: white;"></i>
                                 </div>
-                                <a class="dropdown-item" href="#" style="background-color: transparent !important; color: #000 !important;">
-                                    <button class="btn btn-primary btn-block" style="background-color: white; margin-left: 40px; margin-top: 5px; color: black;">Ver Perfil</button>
+                                <a th:if="${session.usuario != null}" th:href="@{/perfil}" class="dropdown-item">
+                                    <!-- Botón para el usuario autenticado -->
+                                    <button class="btn btn-primary btn-block">Ver Perfil</button>
                                 </a>
-                                <a class="dropdown-item" href="#" style="background-color: transparent !important; color: #000 !important;">
+                                <a th:unless="${session.usuario != null}" th:href="@{/login}" class="dropdown-item">
+                                    <!-- Botón para iniciar sesión -->
+                                    <button class="btn btn-primary btn-block">Iniciar Sesión</button>
+                                </a>
+
+                                <a class="dropdown-item" th:if="${sessionActiva}" th:href="@{/logout}" style="background-color: transparent !important; color: #000 !important;">
                                     <button class="btn btn-danger btn-block" style="background-color: white; margin-top: 10px; color: black;">
                                         <i class="fa fa-sign-out" style="margin-right: 10px;"></i> Cerrar Sesión
                                     </button>

@@ -107,30 +107,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                         <div th:fragment="formulario" class="container-box">
                             <h2 class="titulo">Iniciar Sesión</h2>
-                            <form>
+
+                            <!-- Mostrar mensaje de error si existe -->
+                            <div th:if="${error}" class="alert alert-danger" role="alert">
+                                <p th:text="${error}"></p>
+                            </div>
+
+                            <form th:action="@{/login}" method="post">
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="background: #FFFFFF; border: 1px solid #707070; padding-top: 5px;">
-                                                <i class="fa fa-user" style="color: green; padding-right: 5px;"></i> Usuario
-                                            </span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Ingrese su usuario">
-                                    </div>
+                                    <label for="usuario">
+                                        <i class="fa fa-user" style="color: green; padding-right: 5px;"></i> Email
+                                    </label>
+                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su Email">
                                 </div>
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="background: #FFFFFF; border: 1px solid #707070; ">
-                                                <i class="fa fa-lock" style="color: green; padding-right: 5px;"></i> Contraseña
-                                            </span>
-                                        </div>
-                                        <input type="password" class="form-control" placeholder="Ingrese su contraseña">
-                                    </div>
+                                    <label for="contrasena">
+                                        <i class="fa fa-lock" style="color: green; padding-right: 5px;"></i> Contraseña
+                                    </label>
+                                    <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
                                 </div>
-                                <button type="submit" class="btn boton" formaction="/index">Ingresar</button>
+                                <button type="submit" class="btn boton">Ingresar</button>
                                 <p class="registrate">
-                                    ¿Todavía no tienes cuenta? <a href="/Registro" style="color: #2F73C1;">Regístrate</a>
+                                    ¿Todavía no tienes cuenta? <a href="/registro" style="color: #2F73C1;">Regístrate</a>
                                 </p>
                             </form>
                         </div>
@@ -138,86 +136,68 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                         <div th:fragment="formularioRe" class="container-box">
                             <h2 class="titulo">Registro</h2>
-                            <form>
+                            <!-- Sección para mostrar el mensaje de error -->
+                            <div th:if="${error}" class="alert alert-danger" role="alert">
+                                <p th:text="${error}"></p>
+                            </div>
+
+                            <form th:action="@{/registro}" method="post">
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            Nombre y apellidos
-                                        </span>
+                                        <span class="input-group-text">Nombre y apellidos</span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nombre">
+                                    <input type="text" class="form-control" placeholder="Nombre" name="nombre">
                                 </div>
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            Identificación
-                                        </span>
+                                        <span class="input-group-text">Identificación</span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Identificación">
+                                    <input type="text" class="form-control" placeholder="Identificación" name="identificacion">
                                 </div>
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            Cantón
-                                        </span>
+                                        <span class="input-group-text">Cantón</span>
                                     </div>
-                                    <select class="form-control">
-                                        <option value="canton1">San José</option>
-                                        <option value="canton2">Escazú</option>
-                                        <option value="canton2">Desamparados</option>
-                                        <option value="canton2">Goicoechea</option>
-                                        <option value="canton2">Santa Ana</option>
-                                        <option value="canton2">Alajuelita</option>
-                                        <option value="canton2">Moravia</option>
-                                        <!-- Agrega aquí los cantones disponibles -->
+                                    <select class="form-control" name="canton">
+                                        <option value="San José">San José</option>
+                                        <option value="Escazú">Escazú</option>
+                                        <option value="Desamparados">Desamparados</option>
+                                        <option value="Goicoechea">Goicoechea</option>
+                                        <option value="Santa Ana">Santa Ana</option>
+                                        <option value="Alajuelita">Alajuelita</option>
+                                        <option value="Moravia">Moravia</option>
+                                        <!-- Agrega más opciones según los cantones disponibles -->
                                     </select>
                                 </div>
-                                <!-- Agrega más campos aquí como Teléfono, Email, Contraseña, etc. -->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    Teléfono                                                </span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Teléfono">
-                                        </div>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Teléfono</span>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    Email
-                                                </span>
-                                            </div>
-                                            <input type="text" class="form-control" placeholder="Email">
-                                        </div>
-                                    </div>
+                                    <input type="text" class="form-control" placeholder="Teléfono" name="telefono">
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    Contraseña
-                                                </span>
-                                            </div>
-                                            <input type="password" class="form-control" placeholder="Contraseña">
-                                        </div>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Email</span>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group input-group">
-                                            <div class="input-group-prepend">
-
-                                            </div>
-                                            <input type="password" class="form-control" placeholder="Confirmar Contraseña">
-                                        </div>
+                                    <input type="text" class="form-control" placeholder="Email" name="email">
+                                </div>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Contraseña</span>
                                     </div>
+                                    <input type="password" class="form-control" placeholder="Contraseña" name="contrasena">
+                                </div>
+                                <div class="form-group input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Confirmar Contraseña</span>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="confirmarContrasena">
                                 </div>
                                 <button type="submit" class="btn boton">Registrarse</button>
-
                             </form>
                         </div>
+
+
 
                 </body>
 

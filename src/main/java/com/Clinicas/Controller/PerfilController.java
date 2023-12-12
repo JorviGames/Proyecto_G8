@@ -7,7 +7,6 @@ package com.Clinicas.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -15,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author yorvi
  */
 @Controller
-public class InicioController {
+public class PerfilController {
 
+    @GetMapping("/perfil")
+    public String verPerfil() {
+        // Lógica para cargar los datos del perfil del usuario
+        return "perfil"; // Este es el nombre de la vista del perfil
+    }
 }
