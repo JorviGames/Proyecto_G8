@@ -13,5 +13,7 @@ public interface ExamenService {
     
     public void delete(Examen examen);
     
+    public Examen getExamenById(Long id);
+    
     
 }

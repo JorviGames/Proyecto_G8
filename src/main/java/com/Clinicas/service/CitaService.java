@@ -13,5 +13,7 @@ public interface CitaService {
     
     public void delete(Cita cita);
     
+    public Cita getCitaById(Long id);
+    
     
 }

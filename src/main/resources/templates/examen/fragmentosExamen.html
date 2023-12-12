@@ -8,19 +8,14 @@
     </head>
     <body>
 
-        <section th:fragment="calendario">
+        <section th:fragment="inicio">
 
-            <h2 style="margin-left: 35%; margin-top: 35px; color: #4B9F38; font-size: 50px; font-weight: bold;">Resultado de examenes</h2>
+            <a th:href="@{/examen/agregar}" class="btn btn-primary" style="width: 10%; margin-top: 10px; margin-left: 10px; font-weight: bold; background-color: #4B9F38;"
+               sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLEADO')">Agregar examen</a>
 
-            <div style="text-align:left; margin-top: 4%; margin-left: 18%; display: flex; align-items: center;">
-                <input type="text" placeholder="Buscar examen" style="border-radius: 25px 0 0 25px; margin-left: 5%; padding: 10px; font-size: 16px; width: 340px; height: 56px; border: 1px solid #ccc; border-right: none;">
-                    <button style="border-radius: 0 49% 49% 0; background-color: #4B9F38; color: white; width: 56px; height: 56px; border: 1px solid #4B9F38;">
-                        <i class="fa fa-search"></i>
-                    </button>
+            <h2 style="margin-left: 35%; color: #4B9F38; font-size: 50px; font-weight: bold;">Resultado de examenes</h2>
 
-            </div>
-
-            <div style="margin-top: 20px;  margin-left: 22%; width: 400px;"> 
+            <div style="margin-top: 45px;  margin-left: 22%; width: 400px;"> 
                 <form>
                     <div class="form-group" >
                         <label for="fecha" style="color: #4B9F38; font-weight: bold;">Fecha de examen:</label>
@@ -29,104 +24,129 @@
                 </form>
             </div>
 
+            <button type="submit" class="btn btn-primary" style="margin-top: 50px; margin-bottom: 0%; margin-left: 22%; background-color: #4B9F38; color: #FFFFFF; border: none; border-radius: 25px; height: 55px; width: 400px; font-size: 26px; font-weight: bold; cursor: pointer;">Buscar examen</button>
+
             <div style="position: absolute; top: 300px; left: 1200px;">
                 <p style="font-size: 28px; color: #4B9F38; font-weight: bold; border-bottom: 2px solid #D19131;">Examenes</p>
+
             </div>
 
-        </section> 
+            <div style="margin-left: 57%; width: 20%; margin-top: -5%; background-color: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); z-index: 1000; margin-bottom: 100px;">
 
-        <section th:fragment="examenes">
+                <div style="margin-top: 20px;">
 
-            <div style="display: flex; margin-left: 55%; width: 450px; height: 120px; border: 2px solid lightgray; border-radius: 10px; position: relative; top: -100px;">
-                <div style="display: flex; flex-direction: column; padding: 10px; box-sizing: border-box; width: 100%;">
-                    <div style="display: flex; align-items: baseline;">
-                        <p style="font-size: 25px; font-weight: bold; color: #2860A0;">Examen</p>
-                        <div style="border-left: 2px solid black; height: 35%; margin-left: 4%; margin-top: 3px;"></div>
-                        <p th:text="Fecha" style="font-size: 25px; margin-left: 10px; font-weight: bold; color: #D19131;"></p>
-                    </div>
-                    <p style="font-size: 20px; font-weight: bold; color: #666; margin-top: 3px;">Descripción</p>
-
-                    <div sec:authorize="hasRole('ROLE_ADMIN')" style="flex-direction: column; justify-content: flex-end; position: absolute; left: -2.7%; right: 0; bottom: 10px; padding: 10px; box-sizing: border-box; top: 90px;">
-                        <a th:href="@{/examen/modificar}" class="btn btn-primary" style="width: 102.7%;">Modificar</a>
-                        <button class="btn btn-danger" style="width: 102.7%;">Eliminar</button>
+                    <div th:if="${#lists.isEmpty(examenes)}">
+                        <p style="text-align: center; font-weight: bold; color: #4B9F38;">No hay exámenes registrados.</p>
                     </div>
 
-                    <!--                    <div style="position: absolute; right: -15px; bottom: -10px;">
-                                            <button type="button" 
-                                                    class="btn btn-primary" 
-                                                    data-toggle="modal" 
-                                                    data-target="#modalResultados" 
-                                                    style="border-radius: 15px; background-color: #4B9F38; color: white; padding: 4px 35px; font-size: 24px; font-weight: bold;">
-                                                Ver resultados
-                                            </button>
-                                        </div>-->
-
-                    <div id="modalResultados" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content" style="width: 1800px; height: 700px; background-color: #fff; border-radius: 15px; padding: 20px;">
-
-                                <h4 style="font-weight: bold; color: #2860A0;">Examen:</h4>
-                                <h4 style="font-weight: bold; color: #2860A0;">Tipo de examen:</h4>
-                                <h4 style="font-weight: bold; color: #2860A0;">Fecha de realización:</h4>
-
-                                <hr style="border: 2px solid #ccc; margin-top: 20px; margin-bottom: 20px;">
-
-                                    <h5 style="font-weight: bold; color: #666;">Resultado:</h5>
+                    <div th:each="examen : ${examenes}">
+                        <div style="border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 10px; position: relative;">
 
 
+                            <p>Fecha: <span th:text="${examen.fecha}"></span></p>
+                            <p>Descripción: <span th:text="${examen.descripcion}"></span></p>
+                            <p>Tipo: <span th:text="${examen.tipo}"></span></p>
+                            <p>Resultado: <span th:text="${examen.resultado}"></span></p>
 
+
+                            <div sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLEADO')" style="position: absolute; bottom: 0; right: 0; margin: 10px;">
+
+                                <a th:href="@{/examen/eliminar/}+${examen.idExamen}"
+                                   style="background-color: #dc3545; color: white; padding: 2px 10px; text-decoration: none; border-radius: 20px; font-weight: bold; margin-right: 2px;">Eliminar</a>
+
+
+                                <a th:href="@{/examen/modificar/}+${examen.idExamen}" 
+                                   style="background-color: #28a745; color: white; padding: 2px 10px; text-decoration: none; border-radius: 20px; font-weight: bold;">Modificar</a>
                             </div>
+
                         </div>
                     </div>
 
-
                 </div>
 
+            </div>
 
+
+
+
+        </section> 
+
+        <section th:fragment="agregar">
+
+            <div style="margin-top: 25px; margin-left: 22%; width: 450px;">
+                <form th:action="@{/examen/guardarExamen}" method="post">
+
+                    <div class="form-group">
+                        <label for="fecha" style="color: #4B9F38; font-weight: bold;">Fecha:</label>
+                        <input type="date" class="form-control" style="border-radius: 25px; padding: 10px; font-size: 16px; width: 1000px; height: 56px; border: 1px solid #ccc;"
+                               name="fecha">
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion" style="color: #4B9F38; font-weight: bold;">Descripción:</label>
+                        <input type="text" class="form-control" style="border-radius: 25px; height: 55px; width: 1000px; border-width: 2px; text-align: center;"
+                               placeholder="Ingrese la descripción" name="descripcion">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo" style="color: #4B9F38; font-weight: bold;">Tipo:</label>
+                        <input type="text" class="form-control" style="border-radius: 25px; height: 55px; width: 1000px; border-width: 2px; text-align: center;"
+                               placeholder="Ingrese el tipo" name="tipo">
+                    </div>
+                    <div class="form-group">
+                        <label for="resultado" style="color: #4B9F38; font-weight: bold;">Resultado:</label>
+                        <input type="text" class="form-control" style="border-radius: 25px; height: 55px; width: 1000px; border-width: 2px; text-align: center;"
+                               placeholder="Ingrese el resultado" name="resultado">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"
+                            style="margin-top: 80px; margin-bottom: 7.5%; margin-left: 65%; background-color: #4B9F38; color: #FFFFFF; border: none; border-radius: 25px; height: 55px; width: 450px; font-size: 26px; font-weight: bold; cursor: pointer;">
+                        Guardar Examen
+                    </button>
+                </form>
+            </div>
 
         </section>
 
         <section th:fragment="modificarExamen">
 
-            <div style="margin-top: 40px; margin-left: 22%; width: 1085px;">
-                <form>
-                    <div style="margin-bottom: 15px; border-radius: 25px;">
-                        <label for="examen" style="color: #4B9F38; font-weight: bold;">Examen:</label>
-                        <input type="number" class="form-control" id="examen" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese id del examen" />
-                    </div>
+            <form method="POST"
+                  th:action="@{/examen/guardarExamen}"
+                  th:object="${examen}"
+                  class="was-validated"
+                  style="width: 50%; margin: 50px auto; background-color: white; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
 
-                    <div style="margin-bottom: 15px; border-radius: 25px;">
-                        <label for="fechaExamen" style="color: #4B9F38; font-weight: bold;">Fecha del Examen:</label>
-                        <input type="date" class="form-control" id="fechaExamen" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" />
-                    </div>
+                <h2 style="text-align: center; color: #4B9F38;">Modificar Examen</h2>
 
-                    <div style="margin-bottom: 15px; border-radius: 25px;">
-                        <label for="descripcion" style="color: #4B9F38; font-weight: bold;">Descripción:</label>
-                        <input type="text" class="form-control" id="descripcion" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese la descripción del examen" />
-                    </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="idExamen">ID del Examen:</label>
+                    <input type="text" th:field="*{idExamen}" class="form-control" readonly />
+                </div>
 
-                    <div style="margin-bottom: 15px; border-radius: 25px;">
-                        <label for="tipoExamen" style="color: #4B9F38; font-weight: bold;">Tipo de Examen:</label>
-                        <input type="text" class="form-control" id="tipoExamen" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese el tipo de examen" />
-                    </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="fecha">Fecha:</label>
+                    <input type="text" th:field="*{fecha}" class="form-control" readonly />
+                </div>
 
-                    <div style="margin-bottom: 15px; border-radius: 25px;">
-                        <label for="resultado" style="color: #4B9F38; font-weight: bold;">Resultado:</label>
-                        <input type="text" class="form-control" id="resultado" style="border-radius: 25px; height: 55px; border-width: 2px; text-align: center;" placeholder="Ingrese el resultado del examen" />
-                    </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" th:field="*{descripcion}" class="form-control" required />
+                </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-radius: 25px; margin-top: 2%;">
-                        <button type="submit" class="btn btn-success" style="font-size: 26px; color: #2F73C0; font-weight: bold; color: white; border-radius: 25px; height: 55px; width: 200px; border-width: 2px; text-align: center;">Actualizar</button>
+                <div style="margin-bottom: 10px;">
+                    <label for="tipo">Tipo:</label>
+                    <input type="text" th:field="*{tipo}" class="form-control" required />
+                </div>
 
-                        <a th:href="@{/examen/inicio}">
-                            <button type="button" class="btn btn-secondary" style="background-color: #808080; color: white; border-radius: 25px; padding: 8px 50px; font-size: 26px; border: none; font-weight: bold;">Volver</button>
-                        </a>
+                <div style="margin-bottom: 10px;">
+                    <label for="resultado">Resultado:</label>
+                    <input type="text" th:field="*{resultado}" class="form-control" required />
+                </div>
 
-                    </div> 
-                </form>
-            </div>
+                <button type="submit" style="background-color: #4B9F38; color: white; padding: 10px 15px; border: none; border-radius: 3px; cursor: pointer;">Guardar cambios</button>
+                <a th:href="@{/examen/inicio}" class="btn btn-secondary" style="padding: 10px 15px; border: none; border-radius: 3px; cursor: pointer;">Volver</a>
+            </form>
 
         </section>
+
 
 
 

@@ -37,5 +37,7 @@ public class UsuarioController {
     public String mostrarFormularioRegistro() {
         return "InicioYRe/Registro";
     }
+    
+    
 }
 

@@ -5,25 +5,31 @@
  */
 package com.Clinicas.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.io.Serializable;
+import lombok.Data;
 
 /**
  *
  * @author yorvi
  */
 
-
+@Data
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario implements Serializable{
+    
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_user;
+    @Column(name = "id_user")
+    private Long idUser;
 
     private String nombre;
     private String identificacion;
@@ -33,11 +39,11 @@ public class Usuario {
     private String contrasena;
 
     public Long getId() {
-        return id_user;
+        return idUser;
     }
 
-    public void setId(Long id_user) {
-        this.id_user = id_user;
+    public void setId(Long idUser) {
+        this.idUser = idUser;
     }
 
     public String getNombre() {
@@ -87,6 +93,11 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+
+    public Usuario() {
+    }
+    
+    
 
 }
 

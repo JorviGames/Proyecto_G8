@@ -6,12 +6,21 @@
 package com.Clinicas.service;
 
 import com.Clinicas.domain.Usuario;
+import java.util.List;
 
 /**
  *
  * @author yorvi
  */
 public interface UsuarioService {
+    
+    public List<Usuario> getUsuarios();
+    
+    public Usuario getUsuarioById(Long id);
+    
+    public void save(Usuario usuario);
+    
+    public void delete(Usuario usuario);
 
     boolean validarCredenciales(String email, String contrasena);
 
