@@ -1,4 +1,3 @@
-
 package com.Clinicas.service.impl;
 
 import com.Clinicas.dao.UsuarioDao;
@@ -7,11 +6,10 @@ import com.Clinicas.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
- 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
-   private final UsuarioDao usuarioDao;
+    private final UsuarioDao usuarioDao;
 
     @Autowired
     public UsuarioServiceImpl(UsuarioDao usuarioDao) {
@@ -24,6 +22,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         Usuario usuario = usuarioDao.findByEmailAndContrasena(email, contrasena);
         return usuario != null; // Retorna true si se encuentra el usuario con esas credenciales
     }
+
     @Override
     public boolean registrarUsuario(Usuario usuario) {
         Usuario existingEmail = usuarioDao.findByEmail(usuario.getEmail());
@@ -38,5 +37,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         return true;
     }
 
-}
+    @Override
+    public Usuario obtenerUsuarioPorEmail(String email) {
+        return usuarioDao.findByEmail(email);
+    }
 
+}

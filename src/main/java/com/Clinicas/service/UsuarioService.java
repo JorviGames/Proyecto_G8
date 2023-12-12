@@ -14,5 +14,8 @@ import com.Clinicas.domain.Usuario;
 public interface UsuarioService {
 
     boolean validarCredenciales(String email, String contrasena);
+
     boolean registrarUsuario(Usuario usuario);
+
+    Usuario obtenerUsuarioPorEmail(String email);
 }

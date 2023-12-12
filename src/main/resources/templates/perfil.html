@@ -23,14 +23,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     Información Personal
                                 </div>
                                 <div style="position: absolute; top: 360px; left: 254px; color: black;">
-                                    <p><strong>Nombre y Apellido:</strong> John Doe</p>
-                                    <p><strong>Identificación:</strong> 123456789</p>
-                                    <p><strong>Cantón:</strong> San José</p>
-                                    <p><strong>Correo:</strong> ejemplo@correo.com</p>
+                                    <p><strong>Nombre y Apellido:</strong> <span th:text="${usuario.nombre}"></span></p>
+                                    <p><strong>Identificación:</strong> <span th:text="${usuario.identificacion}"></span></p>
+                                    <p><strong>Cantón:</strong> <span th:text="${usuario.canton}"></span></p>
+                                    <p><strong>Correo:</strong> <span th:text="${usuario.email}"></span></p>
                                 </div>
-                                <div style="position: absolute; top: 302px; left: 920px; color: black;">
+                                <div style="margin-left: 12rem;position: absolute; top: 302px; left: 920px; color: black;">
                                     <h5 style="margin-top: -1.8rem; margin-left: -8rem; text-align: right; font: normal normal normal 60px/12px Bahnschrift; letter-spacing: 0px; color: #2F73C0;">Opciones</h5>
-                                    <div class="mt-4">
+                                    <div class="mt-4" style="padding-top: 5rem;">
                                         <button class="btn btn-primary" style="display: block; width: 267px; height: 52px; border-radius: 25px 0px 10px 0px; background-color: #0A8A57; color: white; margin-bottom: 10px;">Actualizar Perfil</button>
                                         <button class="btn btn-danger" style="display: block; width: 267px; height: 52px; border-radius: 25px 0px 10px 0px; background-color: #0A8A57; color: white;">Borrar Perfil</button>
                                     </div>

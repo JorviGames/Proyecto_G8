@@ -13,8 +13,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author yorvi
  */
 public interface UsuarioDao extends JpaRepository<Usuario, Long> {
-    Usuario findByEmailAndContrasena(String email, String contrasena);
-    Usuario findByEmail(String email);
-    Usuario findByIdentificacion(String identificacion); // Agregamos este método
-}
 
+    Usuario findByEmailAndContrasena(String email, String contrasena);
+
+    Usuario findByEmail(String email);
+
+    Usuario findByIdentificacion(String identificacion);
+
+}
