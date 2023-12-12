@@ -1,31 +1,25 @@
 package com.Clinicas.service.impl;
 
+import com.Clinicas.dao.VacunaDao;
 import com.Clinicas.domain.Vacuna;
 import com.Clinicas.service.VacunaService;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class VacunaServiceImpl implements VacunaService{
+@Service
+public class VacunaServiceImpl implements VacunaService {
 
-    @Override
-    public List<Vacuna> getVacunas() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private final VacunaDao vacunaDao;
+
+    @Autowired
+    public VacunaServiceImpl(VacunaDao vacunaDao) {
+        this.vacunaDao = vacunaDao;
     }
 
     @Override
-    public Vacuna getVacuna(Vacuna vacuna) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void guardarVacuna(Vacuna vacuna) {
+        vacunaDao.save(vacuna);
     }
 
-    @Override
-    public void save(Vacuna vacuna) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete(Vacuna vacuna) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    
-    
 }
